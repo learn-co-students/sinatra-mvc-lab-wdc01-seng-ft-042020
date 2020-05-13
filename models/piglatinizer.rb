@@ -1,8 +1,9 @@
+require 'pry'
+
 class PigLatinizer 
     
     def piglatinize(string)
-        string = string.to_s.downcase
-        string.split(" ")
+        string.downcase.split(" ").map {|word| add_ending_to_word(word)}.join(" ")
     end
 
     def vowel(letter)
@@ -17,7 +18,10 @@ class PigLatinizer
         if vowel(word[0])
             word + "way"
         elsif consonants(word[0])
-            word + "ay"
+            vowel_index = word.index(/[aeiou]/)
+            consonant_letter = word.slice(0..vowel_index-1)
+            substract_consonant_word = word.slice(vowel_index..word.length)
+            substract_consonant_word + consonant_letter + "ay"
         end
     end
     
