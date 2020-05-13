@@ -1,11 +1,6 @@
-class Piglatin
+class PigLatinizer
 
-    attr_reader :expression
-
-    def initialize(expression)
-        @expression = expression 
     
-    end
 
     # DONE get string into expression after initialization
     # DONE make sure that expression is an array of word(s)
@@ -14,11 +9,11 @@ class Piglatin
     # DONE create a convert method that takes in a string and creates a pig latin version of the string
 
 
-    def create_array_of_words
-        arr = self.expression.split(" ")
+
+    def create_array_of_words(word)
+        arr = word.split(" ")
         return arr
     end
-
 
     def convert(word)
      
@@ -30,26 +25,22 @@ class Piglatin
             new_word = word.gsub(/^[^aeiou]+/i, "")
             new_word = new_word + ending
 
-            new_word.downcase!
+            new_word
         else 
             new_word = word + "way"
-            new_word.downcase!
+            new_word
         end
 
         # return string of the word changed to Pig Latin
         new_word
     end
 
-    def ultimate_method
-        array_of_words = self.create_array_of_words
-        arr = array_of_words.map do |word|
+    def piglatinize(word)
+        array_of_words = self.create_array_of_words(word)
+        array_of_words.map do |word|
             self.convert(word)
-        end
-        arr.join(" ")
+        end.join(" ")
     end
-
-
-
 
 
 
