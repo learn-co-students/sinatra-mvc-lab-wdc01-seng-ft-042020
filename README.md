@@ -20,8 +20,8 @@ below to get you started!
 
 ## Instructions
 
-1. Build a form to take user input in user_input.erb. Show that form using a
-   `GET` request at `/`.
+<!-- 1. Build a form to take user input in user_input.erb. Show that form using a
+   `GET` request at `/`. -->
 
 2. Create a `POST` method in your controller (`app.rb`) to receive your form's
    `params`.
