@@ -2,15 +2,25 @@ class PigLatinizer
     
     def piglatinize(string)
         string = string.to_s.downcase
-        string.split("")
-        if vowels,include?
+        string.split(" ")
     end
-     def vowel(letter)
+
+    def vowel(letter)
          letter.match(/[aeiou]/)
-     end
-    def letters
-        letters = text
     end
+    
+    def consonants(letter)
+        letter.match(/[bcdfghjklmnpqrstvwxyz]/)
+    end
+    
+    def add_ending_to_word(word)
+        if vowel(word[0])
+            word + "way"
+        elsif consonants(word[0])
+            word + "ay"
+        end
+    end
+    
     # take in the string, downcase
     #split into individual letters
     # take everything before a vowel and put at end
